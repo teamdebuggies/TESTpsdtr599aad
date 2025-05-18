@@ -1,0 +1,12 @@
+graph TD;
+    A[VPC] -->|Subnets| B[Private Subnet];
+    A -->|Subnets| C[Public Subnet];
+    B --> D[Application Load Balancer];
+    D --> E[EC2 Instances];
+    E --> F[(RDS - PostgreSQL)];
+    F --> G[Data Storage];
+    C --> H[CloudFront];
+    C --> I[S3 Bucket];
+    J[IAM Roles] -->|Policies| K[Least Privilege];
+    D --> L[Security Group];
+    M[GitHub Actions] --> N[CI/CD Pipeline];
